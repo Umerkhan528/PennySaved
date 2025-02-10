@@ -77,9 +77,9 @@ class _ResetPasswordState extends State<ResetPassword> {
                             AnimatedPositioned(
                               duration: const Duration(milliseconds: 300),
                               left: isPhoneSelected
-                                  ? 170
+                                  ? 135
                                   : 0, // Moves based on selection
-                              right: isPhoneSelected ? 0 : 170,
+                              right: isPhoneSelected ? 0 : 135,
                               child: Container(
                                 height: 50,
                                 width: 1,

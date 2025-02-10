@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:penny/Components/Button.dart';
 import 'package:penny/Components/TextField.dart';
+import 'package:penny/Screens/OtpForResentPassword.dart';
 import 'package:penny/Screens/ResetPasswordTextField.dart';
 
 class NewPhoneEnterForm extends StatefulWidget {
@@ -68,12 +69,13 @@ class _NewPhoneEnterFormState extends State<NewPhoneEnterForm> {
               CustomButton(
                 name: "Confirm",
                 onPress: () {
-                  if (_formKey.currentState!.validate()) {
-                    ResetPasswordTextField.route();
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Otp Send Successfully!")),
-                    );
-                  }
+                  print("hello");
+                  Navigator.push(context, ResetPasswordOtp.route());
+                  // if (_formKey.currentState!.validate()) {
+                  //   ScaffoldMessenger.of(context).showSnackBar(
+                  //     const SnackBar(content: Text("Otp Send Successfully!")),
+                  //   );
+                  // }
                 },
               ),
             ],

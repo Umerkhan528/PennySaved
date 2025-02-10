@@ -18,7 +18,7 @@ class _PhoneOtpFormState extends State<PhoneOtpForm> {
 
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return "Please enter your Phone Number";
+      return "Please enter your valid Phone Number";
     }
     final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
     if (!emailRegex.hasMatch(value)) {

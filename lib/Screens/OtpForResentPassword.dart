@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:penny/Components/OtpForm.dart';
 
 class ResetPasswordOtp extends StatefulWidget {
   static route() =>
@@ -59,17 +60,10 @@ class _ResetPasswordOtpState extends State<ResetPasswordOtp> {
                                   fontWeight: FontWeight.w300,
                                   color: Colors.white),
                             ),
-                            OtpTextField(
-                              numberOfFields: 5,
-                              fillColor: const Color.fromRGBO(133, 187, 101, 1),
-                              focusedBorderColor:
-                                  const Color.fromRGBO(133, 187, 101, 1),
-                              borderColor: Colors.white,
-                              borderRadius: BorderRadius.circular(5),
-                            )
                           ],
                         ),
                       ),
+                      const OtpForm()
                     ],
                   ),
                 ),

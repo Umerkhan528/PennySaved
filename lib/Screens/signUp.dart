@@ -50,9 +50,9 @@ class _SignupState extends State<Signup> {
                             AnimatedPositioned(
                               duration: const Duration(milliseconds: 300),
                               left: isSignupSelected
-                                  ? 160
+                                  ? 135
                                   : 0, // Moves based on selection
-                              right: isSignupSelected ? 0 : 160,
+                              right: isSignupSelected ? 0 : 135,
                               child: Container(
                                 height: 50,
                                 decoration: BoxDecoration(
