@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:penny/Components/SignInForm.dart';
-import 'package:penny/Components/SignUpForm.dart';
-import 'package:penny/Components/SocialButton.dart';
-import 'package:penny/Components/logo.dart';
+import 'package:penny/Components/EmailTextField.dart';
+import 'package:penny/Components/PhoneTextField.dart';
 
-class Signup extends StatefulWidget {
-  const Signup({super.key});
+class ResetPassword extends StatefulWidget {
+  static route() =>
+      MaterialPageRoute(builder: (context) => const ResetPassword());
+  const ResetPassword({super.key});
 
   @override
-  State<Signup> createState() => _SignupState();
+  State<ResetPassword> createState() => _ResetPasswordState();
 }
 
-class _SignupState extends State<Signup> {
-  bool isSignupSelected = true; // Track selected option
+class _ResetPasswordState extends State<ResetPassword> {
+  bool isPhoneSelected = true; // Track selected option
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +31,38 @@ class _SignupState extends State<Signup> {
                       ScrollViewKeyboardDismissBehavior.onDrag,
                   child: Column(
                     children: [
+                      Container(
+                        height: screenHeight * 0.4,
+                        width: screenWidth,
+                        child: Center(
+                            child: Image.asset("assets/images/L-Lock.png")),
+                      ),
                       SizedBox(
-                          height: screenHeight * 0.30,
-                          width: screenWidth,
-                          child: const Center(child: Logo())),
+                        height: screenHeight * 0.1,
+                        width: screenWidth * 0.8,
+                        child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Did you forget your password?",
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  fontFamily: "Montserrat",
+                                  fontWeight: FontWeight.w900,
+                                  color: Color.fromRGBO(133, 187, 101, 1)),
+                            ),
+                            Text(
+                              "We will send you an OTP through your email or phone number to get it back.",
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  fontFamily: "Montserrat",
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ),
                       Container(
                         height: 50,
                         width: screenWidth * 0.8,
@@ -49,12 +76,13 @@ class _SignupState extends State<Signup> {
                             // Moving Gradient Indicator
                             AnimatedPositioned(
                               duration: const Duration(milliseconds: 300),
-                              left: isSignupSelected
-                                  ? 160
+                              left: isPhoneSelected
+                                  ? 170
                                   : 0, // Moves based on selection
-                              right: isSignupSelected ? 0 : 160,
+                              right: isPhoneSelected ? 0 : 170,
                               child: Container(
                                 height: 50,
+                                width: 1,
                                 decoration: BoxDecoration(
                                   gradient: const LinearGradient(
                                     colors: [
@@ -75,15 +103,15 @@ class _SignupState extends State<Signup> {
                                   child: GestureDetector(
                                     onTap: () {
                                       setState(() {
-                                        isSignupSelected = false;
+                                        isPhoneSelected = false;
                                       });
                                     },
                                     child: Center(
                                       child: Text(
-                                        "Sign In",
+                                        "Phone Number",
                                         style: TextStyle(
                                           fontSize: 15,
-                                          color: isSignupSelected
+                                          color: isPhoneSelected
                                               ? Colors.white70
                                               : Colors
                                                   .black, // Change color based on selection
@@ -99,15 +127,15 @@ class _SignupState extends State<Signup> {
                                   child: GestureDetector(
                                     onTap: () {
                                       setState(() {
-                                        isSignupSelected = true;
+                                        isPhoneSelected = true;
                                       });
                                     },
                                     child: Center(
                                       child: Text(
-                                        "Sign Up",
+                                        "E-Mail",
                                         style: TextStyle(
                                           fontSize: 15,
-                                          color: isSignupSelected
+                                          color: isPhoneSelected
                                               ? Colors.black
                                               : Colors
                                                   .white70, // Change color based on selection
@@ -124,56 +152,7 @@ class _SignupState extends State<Signup> {
                       ),
                       const SizedBox(height: 20),
                       // Conditional Form Based on Selection
-                      isSignupSelected ? SignUpForm() : SignInForm(),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Row(
-                              children: [
-                                Expanded(
-                                  child:
-                                      Divider(color: Colors.grey, thickness: 1),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(horizontal: 10),
-                                  child: Text(
-                                    "Or Continue with",
-                                    style: TextStyle(
-                                        color: Colors.grey, fontSize: 14),
-                                  ),
-                                ),
-                                Expanded(
-                                  child:
-                                      Divider(color: Colors.grey, thickness: 1),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 20),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SocialButton(
-                                  icon: FontAwesomeIcons.google,
-                                  text: "Google",
-                                  onTap: () {
-                                    // Handle Google sign-in
-                                  },
-                                ),
-                                const SizedBox(width: 15),
-                                SocialButton(
-                                  icon: FontAwesomeIcons.facebook,
-                                  text: "Facebook",
-                                  onTap: () {
-                                    // Handle Facebook sign-in
-                                  },
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
+                      isPhoneSelected ? EmailOtpForm() : PhoneOtpForm(),
                     ],
                   ),
                 ),

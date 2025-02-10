@@ -29,12 +29,29 @@ class CustomTextField extends StatelessWidget {
         validator: validator,
         key: key,
         obscureText: isPassword,
+        style: const TextStyle(color: Colors.white),
         decoration: InputDecoration(
           label: Text(labelText),
           hintText: hintText,
           filled: true,
           fillColor: Colors.transparent,
           suffixIcon: suffixIcon,
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.white70),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.blue, width: 2),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red, width: 2),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: Colors.red, width: 2),
+            borderRadius: BorderRadius.circular(10),
+          ),
           border: OutlineInputBorder(
             borderSide: const BorderSide(
                 color: Color.fromRGBO(153, 156, 166, 1),

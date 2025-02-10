@@ -4,7 +4,7 @@ import 'package:penny/Components/Button.dart';
 import 'package:penny/Components/TextField.dart';
 
 class SignUpForm extends StatefulWidget {
-  SignUpForm({super.key});
+  const SignUpForm({super.key});
 
   @override
   State<SignUpForm> createState() => _SignUpFormState();
@@ -15,15 +15,27 @@ class _SignUpFormState extends State<SignUpForm> {
 
   final TextEditingController _emailController = TextEditingController();
 
-  late bool isVisible = false;
+  bool isVisible = false;
+  bool isVisibleforConfirm = false;
 
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return "Please enter your email";
+      return "Please enter a valid email address.";
     }
     final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
     if (!emailRegex.hasMatch(value)) {
       return "Please enter a valid email address.";
+    }
+    return null;
+  }
+
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return "Your password doesn't match the first one you entered";
+    }
+    final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+    if (!emailRegex.hasMatch(value)) {
+      return "Your password doesn't match the first one you entered";
     }
     return null;
   }
@@ -34,98 +46,133 @@ class _SignUpFormState extends State<SignUpForm> {
     });
   }
 
+  void setVisibilityForConfirm() {
+    setState(() {
+      isVisibleforConfirm = !isVisibleforConfirm;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        CustomTextField(
-          controller: _emailController,
-          validator: _validateEmail,
-          hintText: "Email Address",
-          labelText: 'Email Address',
-        ),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          SizedBox(
-            width: screenWidth * 0.5,
-            child: const CustomTextField(
-              hintText: "First Name",
-              labelText: 'First Name',
-            ),
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CustomTextField(
+            controller: _emailController,
+            validator: _validateEmail,
+            hintText: "Email Address",
+            labelText: 'Email Address',
           ),
-          SizedBox(
-            width: screenWidth * 0.5,
-            child: const CustomTextField(
-              hintText: "Last Name",
-              labelText: 'Last Name',
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            SizedBox(
+              width: screenWidth * 0.5,
+              child: const CustomTextField(
+                hintText: "First Name",
+                labelText: 'First Name',
+              ),
             ),
+            SizedBox(
+              width: screenWidth * 0.5,
+              child: const CustomTextField(
+                hintText: "Last Name",
+                labelText: 'Last Name',
+              ),
+            ),
+          ]),
+          CustomTextField(
+            hintText: "Password",
+            isPassword: isVisible,
+            labelText: 'Password',
+            suffixIcon: isVisible
+                ? IconButton(
+                    icon: const Icon(Icons.visibility_off_outlined),
+                    onPressed: () {
+                      setVisibility();
+                    },
+                  )
+                : IconButton(
+                    icon: const Icon(Icons.visibility_outlined),
+                    onPressed: () {
+                      setVisibility();
+                    },
+                  ),
           ),
-        ]),
-        const CustomTextField(
-          hintText: "Password",
-          isPassword: true,
-          labelText: 'Password',
-        ),
-        CustomTextField(
-          hintText: "Password Confirmation",
-          isPassword: true,
-          labelText: 'Password Confirmation',
-          suffixIcon: isVisible
-              ? IconButton(
-                  icon: const Icon(Icons.visibility_off_outlined),
-                  onPressed: () {
-                    setVisibility();
-                  },
-                )
-              : IconButton(
-                  icon: const Icon(Icons.visibility_outlined),
-                  onPressed: () {
-                    setVisibility();
-                  },
-                ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 5),
-          child: Row(
-            children: [
-              Checkbox(value: true, onChanged: (val) {}),
-              RichText(
-                text: TextSpan(
-                  style: const TextStyle(color: Colors.white, fontSize: 15),
-                  children: [
-                    const TextSpan(text: "I agree to the "),
-                    WidgetSpan(
-                      child: GestureDetector(
-                        child: const Text(
-                          "terms and conditions policy",
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.green,
-                              decoration: TextDecoration.underline,
-                              decorationColor: Colors.green,
-                              decorationThickness: 1.5),
+          CustomTextField(
+            hintText: "Password Confirmation",
+            isPassword: isVisibleforConfirm,
+            labelText: 'Password Confirmation',
+            validator: _validatePassword,
+            suffixIcon: isVisibleforConfirm
+                ? IconButton(
+                    icon: const Icon(Icons.visibility_off_outlined),
+                    onPressed: () {
+                      setVisibilityForConfirm();
+                    },
+                  )
+                : IconButton(
+                    icon: const Icon(Icons.visibility_outlined),
+                    onPressed: () {
+                      setVisibilityForConfirm();
+                    },
+                  ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 5),
+            child: Row(
+              children: [
+                Checkbox(value: true, onChanged: (val) {}),
+                RichText(
+                  text: TextSpan(
+                    style: const TextStyle(color: Colors.white, fontSize: 15),
+                    children: [
+                      const TextSpan(text: "I agree to the "),
+                      WidgetSpan(
+                        child: GestureDetector(
+                          child: const Text(
+                            "terms and conditions policy",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.green,
+                                decoration: TextDecoration.underline,
+                                decorationColor: Colors.green,
+                                decorationThickness: 1.5),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        CustomButton(
-          name: "Sign Up",
-          onPress: () {
-            if (_formKey.currentState!.validate()) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text("Sign-up Successful!")),
-              );
-            }
-          },
-        ),
-      ],
+          CustomButton(
+            name: "Sign Up",
+            onPress: () {
+              print("hello!");
+
+              final emailError = _validateEmail(_emailController.text);
+              if (emailError == null) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("Sign-up Successful!")),
+                );
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(emailError)),
+                );
+              }
+              if (_formKey.currentState!.validate()) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("Sign-up Successful!")),
+                );
+              }
+            },
+          ),
+        ],
+      ),
     );
   }
 }
