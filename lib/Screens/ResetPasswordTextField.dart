@@ -44,7 +44,7 @@ class _ResetPasswordTextFieldState extends State<ResetPasswordTextField> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "Did you forget your password?",
+                              "Verification Code",
                               style: TextStyle(
                                   fontSize: 15,
                                   fontFamily: "Montserrat",
@@ -52,7 +52,7 @@ class _ResetPasswordTextFieldState extends State<ResetPasswordTextField> {
                                   color: Color.fromRGBO(133, 187, 101, 1)),
                             ),
                             Text(
-                              "We will send you an OTP through your email or phone number to get it back.",
+                              "We have sent the verification code to your email address",
                               style: TextStyle(
                                   fontSize: 13,
                                   fontFamily: "Montserrat",
