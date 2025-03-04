@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
-import 'package:penny/Components/OtpForm.dart';
+import 'package:penny/Screens/OtpForm/OtpForm.dart';
 
 class ResetPasswordOtp extends StatefulWidget {
   static route() =>
@@ -22,7 +22,7 @@ class _ResetPasswordOtpState extends State<ResetPasswordOtp> {
       resizeToAvoidBottomInset: true, // Prevents UI from moving up
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(color: Colors.transparent),
+          decoration: const BoxDecoration(color: Colors.transparent),
           child: Column(
             children: [
               Expanded(
@@ -31,7 +31,7 @@ class _ResetPasswordOtpState extends State<ResetPasswordOtp> {
                       ScrollViewKeyboardDismissBehavior.onDrag,
                   child: Column(
                     children: [
-                      Container(
+                      SizedBox(
                         height: screenHeight * 0.4,
                         width: screenWidth,
                         child: Center(
@@ -40,11 +40,11 @@ class _ResetPasswordOtpState extends State<ResetPasswordOtp> {
                       SizedBox(
                         height: screenHeight * 0.1,
                         width: screenWidth * 0.8,
-                        child: Column(
+                        child: const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text(
+                            Text(
                               "Verification Code",
                               style: TextStyle(
                                   fontSize: 15,
@@ -52,7 +52,7 @@ class _ResetPasswordOtpState extends State<ResetPasswordOtp> {
                                   fontWeight: FontWeight.w900,
                                   color: Color.fromRGBO(133, 187, 101, 1)),
                             ),
-                            const Text(
+                            Text(
                               "We have sent the verification code to your email address.",
                               style: TextStyle(
                                   fontSize: 13,

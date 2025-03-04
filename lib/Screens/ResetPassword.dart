@@ -22,7 +22,7 @@ class _ResetPasswordState extends State<ResetPassword> {
       resizeToAvoidBottomInset: true, // Prevents UI from moving up
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(color: Colors.transparent),
+          decoration: const BoxDecoration(color: Colors.transparent),
           child: Column(
             children: [
               Expanded(
@@ -31,7 +31,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                       ScrollViewKeyboardDismissBehavior.onDrag,
                   child: Column(
                     children: [
-                      Container(
+                      SizedBox(
                         height: screenHeight * 0.4,
                         width: screenWidth,
                         child: Center(
@@ -152,7 +152,9 @@ class _ResetPasswordState extends State<ResetPassword> {
                       ),
                       const SizedBox(height: 20),
                       // Conditional Form Based on Selection
-                      isPhoneSelected ? EmailOtpForm() : PhoneOtpForm(),
+                      isPhoneSelected
+                          ? const EmailOtpForm()
+                          : const PhoneOtpForm(),
                     ],
                   ),
                 ),

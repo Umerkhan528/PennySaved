@@ -24,12 +24,12 @@ class CustomButton extends StatelessWidget {
             width: screenWidth * 0.9,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: Color.fromRGBO(133, 187, 101, 1),
+              color: const Color.fromRGBO(133, 187, 101, 1),
               borderRadius: BorderRadius.circular(30),
             ),
             child: Text(
               name,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
               ),

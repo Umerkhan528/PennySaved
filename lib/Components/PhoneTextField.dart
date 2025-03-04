@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:penny/Components/Button.dart';
-import 'package:penny/Components/TextField.dart';
+import 'package:penny/Components/Global/Button.dart';
+import 'package:penny/Components/Global/TextField.dart';
 import 'package:penny/Screens/ResetPasswordTextField.dart';
 
 class PhoneOtpForm extends StatefulWidget {
@@ -41,7 +41,7 @@ class _PhoneOtpFormState extends State<PhoneOtpForm> {
       key: _formKey,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Container(
+        child: SizedBox(
           height: screenHeight * 0.35,
           width: screenWidth,
           child: Column(

@@ -1,7 +1,7 @@
 // Sign Up Form
 import 'package:flutter/material.dart';
-import 'package:penny/Components/Button.dart';
-import 'package:penny/Components/TextField.dart';
+import 'package:penny/Components/Global/Button.dart';
+import 'package:penny/Components/Global/TextField.dart';
 
 class SignUpForm extends StatefulWidget {
   const SignUpForm({super.key});
@@ -71,14 +71,14 @@ class _SignUpFormState extends State<SignUpForm> {
             SizedBox(
               width: screenWidth * 0.5,
               child: const CustomTextField(
-                hintText: "First Name",
+                hintText: 'First Name',
                 labelText: 'First Name',
               ),
             ),
             SizedBox(
               width: screenWidth * 0.5,
               child: const CustomTextField(
-                hintText: "Last Name",
+                hintText: 'Last Name',
                 labelText: 'Last Name',
               ),
             ),
@@ -136,9 +136,10 @@ class _SignUpFormState extends State<SignUpForm> {
                             "terms and conditions policy",
                             style: TextStyle(
                                 fontSize: 15,
-                                color: Colors.green,
+                                color: Color.fromRGBO(133, 187, 101, 1),
                                 decoration: TextDecoration.underline,
-                                decorationColor: Colors.green,
+                                decorationColor:
+                                    Color.fromRGBO(133, 187, 101, 1),
                                 decorationThickness: 1.5),
                           ),
                         ),

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:penny/Components/Button.dart';
-import 'package:penny/Components/TextField.dart';
+import 'package:penny/Components/Global/Button.dart';
+import 'package:penny/Components/Global/TextField.dart';
 import 'package:penny/Screens/OtpForResentPassword.dart';
-import 'package:penny/Screens/ResetPasswordTextField.dart';
 
 class NewPhoneEnterForm extends StatefulWidget {
   const NewPhoneEnterForm({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:penny/Components/Button.dart';
-import 'package:penny/Components/TextField.dart';
+import 'package:penny/Components/Global/Button.dart';
+import 'package:penny/Components/Global/TextField.dart';
 import 'package:penny/Screens/ResetPassword.dart';
 
 class SignInForm extends StatefulWidget {
@@ -14,6 +14,7 @@ class _SignInFormState extends State<SignInForm> {
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   bool isVisible = false;
 
   String? _validateEmail(String? value) {
@@ -46,6 +47,7 @@ class _SignInFormState extends State<SignInForm> {
             validator: _validateEmail,
           ),
           CustomTextField(
+            controller: _passwordController,
             hintText: "Password",
             isPassword: isVisible,
             labelText: 'Password',
@@ -80,7 +82,8 @@ class _SignInFormState extends State<SignInForm> {
                     Navigator.push(context, ResetPassword.route());
                   },
                   child: const Text("Forgot Password?",
-                      style: TextStyle(color: Colors.green)),
+                      style:
+                          TextStyle(color: Color.fromRGBO(133, 187, 101, 1))),
                 ),
               ],
             ),

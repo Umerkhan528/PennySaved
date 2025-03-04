@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:penny/Components/Button.dart';
-import 'package:penny/Components/TextField.dart';
+import 'package:penny/Components/Global/Button.dart';
+import 'package:penny/Components/Global/TextField.dart';
 
 class EmailOtpForm extends StatefulWidget {
   const EmailOtpForm({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:penny/Components/SignInForm.dart';
-import 'package:penny/Components/SignUpForm.dart';
+import 'package:penny/Screens/SignInForm/SignInForm.dart';
+import 'package:penny/Screens/SignUpForm/SignUpForm.dart';
 import 'package:penny/Components/SocialButton.dart';
-import 'package:penny/Components/logo.dart';
+import 'package:penny/Components/Global/logo.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -23,7 +23,7 @@ class _SignupState extends State<Signup> {
       resizeToAvoidBottomInset: true, // Prevents UI from moving up
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(color: Colors.transparent),
+          decoration: const BoxDecoration(color: Colors.transparent),
           child: Column(
             children: [
               Expanded(
@@ -124,7 +124,9 @@ class _SignupState extends State<Signup> {
                       ),
                       const SizedBox(height: 20),
                       // Conditional Form Based on Selection
-                      isSignupSelected ? SignUpForm() : SignInForm(),
+                      isSignupSelected
+                          ? const SignUpForm()
+                          : const SignInForm(),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Column(
