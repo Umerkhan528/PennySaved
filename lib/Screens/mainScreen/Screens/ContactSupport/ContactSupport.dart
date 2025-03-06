@@ -9,8 +9,15 @@ class ContactSupportScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: SvgPicture.asset("assets/icons/appbar/Back.svg"),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
+        elevation: 0,
         actions: [
           IconButton(
             icon: SvgPicture.asset(

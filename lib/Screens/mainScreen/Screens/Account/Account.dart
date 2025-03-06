@@ -66,6 +66,12 @@ class _AccountScreenState extends State<AccountScreen> {
                         _sectionTitle("Investment Preferences"),
                         _SubsectionTitle(
                             "Set up your preferred investment types and risk levels"),
+                        const Text("Investment Types",
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400)),
+                        const SizedBox(height: 8),
                         _investmentSelection(),
                         _SubDessectionTitle(
                             "Select the investment types you'd like Penny Saved to manage for you."),
@@ -73,7 +79,13 @@ class _AccountScreenState extends State<AccountScreen> {
                         const SizedBox(height: 20),
 
                         // Risk Level Dropdown
-                        _sectionTitle("Risk Level"),
+                        const Text("Risk Level",
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400)),
+                        const SizedBox(height: 8),
+
                         _riskLevelDropdown(),
                         _SubDessectionTitle(
                             "Low risk let penny saved invest only in mutual funds and safe investments."),
@@ -142,27 +154,64 @@ class _AccountScreenState extends State<AccountScreen> {
           Row(
             children: [
               Expanded(
-                child: CustomTextField(
-                  controller: firstNameController,
-                  labelText: "First Name",
-                  hintText: 'First Name',
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: const Text("First Name",
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400)),
+                    ),
+                    CustomTextField(
+                      controller: firstNameController,
+                      hintText: 'First Name',
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(width: 12),
               Expanded(
-                child: CustomTextField(
-                  controller: lastNameController,
-                  labelText: "Last Name",
-                  hintText: "Last Name",
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: const Text("Last Name",
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400)),
+                    ),
+                    CustomTextField(
+                      controller: lastNameController,
+                      hintText: "Last Name",
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
+
           const SizedBox(height: 12),
-          CustomTextField(
-            controller: emailController,
-            labelText: "Email Address",
-            hintText: "Email Address",
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: const Text("Email Address",
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400)),
+              ),
+              CustomTextField(
+                controller: lastNameController,
+                hintText: "Email Address",
+              ),
+            ],
           ),
           const SizedBox(height: 12),
 
@@ -211,7 +260,7 @@ class _AccountScreenState extends State<AccountScreen> {
                 .map((investment) => Chip(
                       label: Text(investment,
                           style: const TextStyle(color: Colors.white)),
-                      backgroundColor: const Color.fromRGBO(128, 131, 144, 1),
+                      backgroundColor: const Color.fromRGBO(128, 131, 144, 0.9),
                       deleteIcon: const Icon(Icons.close, color: Colors.white),
                       onDeleted: () {
                         setState(() {
@@ -227,10 +276,17 @@ class _AccountScreenState extends State<AccountScreen> {
             children: [
               const Text("Select investment types",
                   style: TextStyle(color: Colors.white70, fontSize: 13)),
-              IconButton(
-                onPressed: () => _showInvestmentDialog(),
-                icon: const Icon(Icons.add,
+              Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
                     color: Color.fromRGBO(133, 187, 101, 1)),
+                child: IconButton(
+                  onPressed: () => _showInvestmentDialog(),
+                  icon: const Icon(Icons.add,
+                      color: Color.fromRGBO(47, 43, 61, 1)),
+                ),
               ),
             ],
           ),

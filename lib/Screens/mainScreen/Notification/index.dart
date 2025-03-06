@@ -9,6 +9,12 @@ class NotificationsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(22, 22, 33, 1), // Dark Background
       appBar: AppBar(
+        leading: IconButton(
+          icon: SvgPicture.asset("assets/icons/appbar/Back.svg"),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
         elevation: 0,
@@ -16,6 +22,7 @@ class NotificationsScreen extends StatelessWidget {
           SvgPicture.asset("assets/icons/Logo.svg"),
         ],
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
@@ -121,7 +128,7 @@ class NotificationsScreen extends StatelessWidget {
     bool isUnread = false,
   }) {
     return Card(
-      color: const Color(0xFF1E2532), // Dark Card Color
+      color: const Color.fromRGBO(22, 22, 33, 1), // Dark Card Color
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       margin: const EdgeInsets.symmetric(vertical: 6),
       child: Padding(
@@ -129,7 +136,15 @@ class NotificationsScreen extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(icon, color: Colors.white70, size: 28),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: const Color.fromRGBO(61, 61, 82, 1),
+              ),
+              width: 38,
+              height: 38,
+              child: Icon(icon, color: Colors.white70, size: 28),
+            ),
             const SizedBox(width: 12),
             Expanded(
               child: Column(
@@ -157,9 +172,11 @@ class NotificationsScreen extends StatelessWidget {
               ),
             ),
             if (isUnread)
-              const Icon(Icons.circle,
-                  color: Color.fromRGBO(133, 187, 101, 1),
-                  size: 10), // Unread Indicator
+              const Icon(
+                Icons.circle,
+                color: Color.fromRGBO(133, 187, 101, 1),
+                size: 10,
+              ), // Unread Indicator
           ],
         ),
       ),

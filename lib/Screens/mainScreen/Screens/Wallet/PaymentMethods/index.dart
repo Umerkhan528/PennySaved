@@ -47,15 +47,17 @@ class _PaymentMethodScreenState extends State<PaymentMethodScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFF1C1C27),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
         title: const Text("Payment Methods",
             style: TextStyle(color: Colors.white)),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () => Navigator.pop(context),
+          icon: SvgPicture.asset("assets/icons/appbar/Back.svg"),
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
+        iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
+        elevation: 0,
         actions: [
           IconButton(
             icon: SvgPicture.asset(

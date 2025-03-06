@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
-  final String labelText;
+  final String? labelText;
   final bool isPassword;
   final TextEditingController? controller; // Kept optional
   final String? Function(String?)? validator;
@@ -11,7 +11,7 @@ class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
     required this.hintText,
-    required this.labelText,
+    this.labelText,
     this.controller, // Now optional
     this.isPassword = false,
     this.validator,
@@ -28,7 +28,12 @@ class CustomTextField extends StatelessWidget {
         obscureText: isPassword,
         style: const TextStyle(color: Colors.white),
         decoration: InputDecoration(
-          label: Text(labelText),
+          label: labelText != null
+              ? Text(
+                  labelText!,
+                  style: const TextStyle(color: Colors.white),
+                )
+              : null,
           hintText: hintText,
           filled: true,
           fillColor: Colors.transparent,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:penny/Screens/mainScreen/Notification/index.dart';
 
 class PreferencesScreen extends StatefulWidget {
   const PreferencesScreen({super.key});
@@ -17,10 +19,32 @@ class _PreferencesScreenState extends State<PreferencesScreen> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
       appBar: AppBar(
-        title: const Text("Preferences",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-        backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
+        leading: IconButton(
+          icon: SvgPicture.asset("assets/icons/appbar/Back.svg"),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
+        elevation: 0,
+        actions: [
+          IconButton(
+            icon: SvgPicture.asset(
+              'assets/icons/appbar/Notifications.svg',
+              height: 24,
+              width: 24,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NotificationsScreen(),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(18.0),

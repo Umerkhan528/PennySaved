@@ -2,10 +2,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:penny/Components/Global/Button.dart';
 import 'package:penny/Components/Global/TextField.dart';
 import 'package:penny/Components/Global/logo.dart';
+import 'package:penny/Screens/mainScreen/Notification/index.dart';
 import 'package:penny/Screens/mainScreen/Screens/Enable2FA/Enable2FAPhone/2FAPhone.dart';
 
 class SecurityScreen extends StatefulWidget {
@@ -54,8 +56,32 @@ class _SecurityScreenState extends State<SecurityScreen> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
+        leading: IconButton(
+          icon: SvgPicture.asset("assets/icons/appbar/Back.svg"),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
+        elevation: 0,
+        actions: [
+          IconButton(
+            icon: SvgPicture.asset(
+              'assets/icons/appbar/Notifications.svg',
+              height: 24,
+              width: 24,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NotificationsScreen(),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(10),

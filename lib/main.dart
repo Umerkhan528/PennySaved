@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:penny/Screens/mainScreen/Screens/Account/Account.dart';
 import 'package:penny/Screens/mainScreen/Screens/ContactSupport/ContactSupport.dart';
 import 'package:penny/Screens/mainScreen/Screens/Enable2FA/Enable2FA.dart';
 import 'package:penny/Screens/mainScreen/Screens/Settings/Settings.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const Signup(),
+      home: const AccountScreen(),
     );
   }
 }

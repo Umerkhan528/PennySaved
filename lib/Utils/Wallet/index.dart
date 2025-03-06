@@ -61,11 +61,11 @@ class WalletBalance extends StatelessWidget {
                     side: const BorderSide(color: Colors.red),
                     backgroundColor: Colors.transparent),
                 onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //       builder: (context) => WithdrawFundsScreen()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => WithdrawFundsScreen()),
+                  );
                 },
                 child: const Text(
                   "Withdraw",

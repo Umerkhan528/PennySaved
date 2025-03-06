@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:penny/Screens/mainScreen/Screens/Wallet/Withdrawal/ConfirmWithdrawal.dart/ConfirmWithdrawal.dart';
 
 class WithdrawFundsScreen extends StatefulWidget {
@@ -18,9 +19,15 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(22, 22, 33, 1), // Dark background
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        leading: IconButton(
+          icon: SvgPicture.asset("assets/icons/appbar/Back.svg"),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
+        elevation: 0,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -42,13 +49,18 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                   const SizedBox(height: 12),
 
                   // Amount Input
+                  const Text("Amount",
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400)),
+                  const SizedBox(height: 8),
                   TextField(
                     controller: amountController,
                     style: const TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: const Color(0xFF1E1E26),
-                      labelText: "Amount",
                       labelStyle: const TextStyle(color: Colors.white70),
                       suffixIcon: Container(
                         margin: const EdgeInsets.all(8),
@@ -167,9 +179,9 @@ class _WithdrawFundsScreenState extends State<WithdrawFundsScreen> {
                   // Payment Method
                   const Text("Payment Method",
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           color: Colors.white,
-                          fontWeight: FontWeight.bold)),
+                          fontWeight: FontWeight.w400)),
                   const SizedBox(height: 8),
 
                   DropdownButtonFormField<String>(

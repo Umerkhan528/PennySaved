@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:penny/Screens/mainScreen/Notification/index.dart';
 
 class TermsAndConditionsScreen extends StatelessWidget {
   const TermsAndConditionsScreen({super.key});
@@ -8,8 +10,15 @@ class TermsAndConditionsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
       appBar: AppBar(
+        leading: IconButton(
+          icon: SvgPicture.asset("assets/icons/appbar/Back.svg"),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
-        iconTheme: const IconThemeData(color: Color.fromRGBO(255, 255, 255, 1)),
+        elevation: 0,
       ),
       body: SafeArea(
         child: Container(
@@ -24,6 +33,14 @@ class TermsAndConditionsScreen extends StatelessWidget {
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                     color: Color.fromRGBO(133, 187, 101, 1),
+                  ),
+                ),
+                const Text(
+                  "Terms and conditions of penny saved",
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w400,
+                    color: Color.fromRGBO(204, 205, 211, 1),
                   ),
                 ),
                 const SizedBox(height: 16),

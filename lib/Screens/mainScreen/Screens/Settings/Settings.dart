@@ -43,53 +43,53 @@ class SettingsScreen extends StatelessWidget {
               SvgPicture.asset('assets/icons/Settings/ProfileSecurity.svg'),
               "Profile Security",
               () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => SecurityScreen()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SecurityScreen()),
+                );
               },
             ),
             _buildSettingsOption(
               SvgPicture.asset('assets/icons/Settings/Prefer.svg'),
               "Preferences",
               () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => PreferencesScreen()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => PreferencesScreen()),
+                );
               },
             ),
             _buildSettingsOption(
               SvgPicture.asset('assets/icons/Settings/Payment.svg'),
               "Payment Methods",
               () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //       builder: (context) => const PaymentMethodScreen()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const PaymentMethodScreen()),
+                );
               },
             ),
             _buildSettingsOption(
               SvgPicture.asset('assets/icons/Settings/Contact.svg'),
               "Contact Support",
               () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //       builder: (context) => ContactSupportScreen()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ContactSupportScreen()),
+                );
               },
             ),
             _buildSettingsOption(
               SvgPicture.asset('assets/icons/Settings/T&C.svg'),
               "Terms and conditions",
               () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //       builder: (context) => TermsAndConditionsScreen()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => TermsAndConditionsScreen()),
+                );
               },
             ),
           ],
