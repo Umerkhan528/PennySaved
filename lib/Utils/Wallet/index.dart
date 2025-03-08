@@ -76,11 +76,10 @@ class WalletBalance extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromRGBO(133, 187, 101, 1)),
                 onPressed: () {
-                  print('hello');
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(builder: (context) => AddFundsScreen()),
-                  // );
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => AddFundsScreen()),
+                  );
                 },
                 child: const Text(
                   "Add Fund",
@@ -108,11 +107,11 @@ class PaymentMethods extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            //       builder: (context) => const PaymentMethodScreen()),
-            // );
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const PaymentMethodScreen()),
+            );
           },
           child: Container(
             width: 156,
@@ -160,10 +159,10 @@ class PaymentMethods extends StatelessWidget {
         Expanded(
           child: GestureDetector(
             onTap: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => const RecurringTopUp()),
-              // );
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const RecurringTopUp()),
+              );
             },
             child: Container(
               height: 108,

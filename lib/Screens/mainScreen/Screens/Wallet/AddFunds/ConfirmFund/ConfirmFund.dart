@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:penny/Screens/mainScreen/Screens/Wallet/AddFunds/ConfirmFund/SubmitFund/SubmitFund.dart';
 import 'package:penny/Screens/mainScreen/Screens/Wallet/Withdrawal/ConfirmWithdrawal.dart/SubmittionWithDrawal/SubmittionWithDrawal.dart';
 
@@ -10,14 +11,15 @@ class FundConfirmScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(22, 22, 33, 1), // Dark background
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          icon: SvgPicture.asset("assets/icons/appbar/Back.svg"),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
+        iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
+        elevation: 0,
       ),
       body: Center(
         child: Padding(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:penny/Components/Global/Button.dart';
 import 'package:penny/Screens/mainScreen/Screens/Wallet/AddFunds/ConfirmFund/ConfirmFund.dart';
 import 'package:penny/Screens/mainScreen/Screens/Wallet/RecurringTopUp/RecurringTopUpEdit/index.dart';
@@ -27,9 +28,15 @@ class _AddFundsScreenState extends State<AddFundsScreen> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(22, 22, 33, 1), // Dark background
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        leading: IconButton(
+          icon: SvgPicture.asset("assets/icons/appbar/Back.svg"),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
+        elevation: 0,
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:penny/Components/Global/logo.dart';
 import 'package:penny/Components/mainScreen/BottomNavigation.dart';
+import 'package:penny/Screens/SignUpForm/SignUpForm.dart';
 import 'package:penny/Screens/mainScreen/Notification/index.dart';
 import 'package:penny/Screens/mainScreen/Screens/Account/Account.dart';
 import 'package:penny/Screens/mainScreen/Screens/ContactSupport/ContactSupport.dart';
@@ -12,6 +13,7 @@ import 'package:penny/Screens/mainScreen/Screens/Wallet/PaymentMethods/index.dar
 import 'package:penny/Screens/mainScreen/Screens/Wallet/Wallet.dart';
 import 'package:penny/Screens/mainScreen/Screens/Wallet/Withdrawal/withdrawal.dart';
 import 'package:penny/Screens/mainScreen/Screens/homeScreen/HomePage.dart';
+import 'package:penny/Screens/signUp.dart';
 
 class mainScreen extends StatefulWidget {
   static route({int initialPage = 0}) => MaterialPageRoute(
@@ -201,11 +203,11 @@ class _mainScreenState extends State<mainScreen> {
                         style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => PaymentMethodScreen()),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PaymentMethodScreen()),
+                        );
                       },
                     ),
                     ListTile(
@@ -216,11 +218,11 @@ class _mainScreenState extends State<mainScreen> {
                         style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => AddFundsScreen()),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => AddFundsScreen()),
+                        );
                       },
                     ),
                     ListTile(
@@ -231,10 +233,10 @@ class _mainScreenState extends State<mainScreen> {
                         style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                       onTap: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => WithdrawFundsScreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => WithdrawFundsScreen()));
                       },
                     ),
                     const Divider(
@@ -250,10 +252,10 @@ class _mainScreenState extends State<mainScreen> {
                         style: TextStyle(color: Colors.white, fontSize: 14),
                       ),
                       onTap: () {
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => ContactSupportScreen()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ContactSupportScreen()));
                       },
                     ),
                     ListTile(
@@ -263,7 +265,10 @@ class _mainScreenState extends State<mainScreen> {
                         "Log Out",
                         style: TextStyle(color: Colors.redAccent, fontSize: 14),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Signup()));
+                      },
                     ),
                   ],
                 ),
