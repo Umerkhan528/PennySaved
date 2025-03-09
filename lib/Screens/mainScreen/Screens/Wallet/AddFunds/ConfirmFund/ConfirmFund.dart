@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:penny/Screens/mainScreen/Screens/Wallet/AddFunds/ConfirmFund/SubmitFund/SubmitFund.dart';
-import 'package:penny/Screens/mainScreen/Screens/Wallet/Withdrawal/ConfirmWithdrawal.dart/SubmittionWithDrawal/SubmittionWithDrawal.dart';
 
 class FundConfirmScreen extends StatelessWidget {
   const FundConfirmScreen({super.key});

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:penny/Components/Global/logo.dart';
-import 'package:penny/Screens/mainScreen/Screens/Wallet/Wallet.dart';
-import 'package:penny/Screens/mainScreen/Screens/homeScreen/HomePage.dart';
 import 'package:penny/Screens/mainScreen/index.dart';
 
 class WithdrawRequestSubmittedScreen extends StatelessWidget {

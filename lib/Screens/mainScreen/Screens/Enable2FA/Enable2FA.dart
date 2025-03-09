@@ -1,12 +1,7 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:penny/Components/Global/Button.dart';
 import 'package:penny/Components/Global/TextField.dart';
-import 'package:penny/Components/Global/logo.dart';
 import 'package:penny/Screens/mainScreen/Notification/index.dart';
 import 'package:penny/Screens/mainScreen/Screens/Enable2FA/Enable2FAPhone/2FAPhone.dart';
 
@@ -51,8 +46,6 @@ class _SecurityScreenState extends State<SecurityScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: const Color.fromRGBO(22, 22, 33, 1),
       appBar: AppBar(
@@ -169,67 +162,6 @@ class _SecurityScreenState extends State<SecurityScreen> {
           ),
         ),
       ),
-    );
-  }
-
-  Widget _buildDropdown(List<String> items, String selectedItem,
-      ValueChanged<String?> onChanged) {
-    return Container(
-      width: 350,
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      decoration: BoxDecoration(
-        color: const Color(0xFF1E1E2E),
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.grey.shade700),
-      ),
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton<String>(
-          value: selectedItem,
-          dropdownColor: const Color(0xFF1E1E2E),
-          icon: const Icon(Icons.arrow_drop_down, color: Colors.white),
-          style: const TextStyle(color: Colors.white, fontSize: 16),
-          items: items.map((item) {
-            return DropdownMenuItem(
-              value: item,
-              // ignore: prefer_const_constructors
-              child: Text(item, style: TextStyle(color: Colors.white)),
-            );
-          }).toList(),
-          onChanged: onChanged,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildToggle() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text("Update Features",
-                style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w900)),
-            SizedBox(height: 8),
-            Text("Auto Update",
-                style: TextStyle(
-                    fontSize: 13,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w400)),
-            SizedBox(height: 4),
-            Text("Add an extra layer of security to your account.",
-                style: TextStyle(color: Colors.white70)),
-          ],
-        ),
-        Switch(
-          value: autoUpdate,
-          activeColor: Colors.greenAccent,
-          onChanged: (value) => setState(() => autoUpdate = value),
-        ),
-      ],
     );
   }
 

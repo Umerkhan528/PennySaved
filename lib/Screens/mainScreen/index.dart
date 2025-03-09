@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:penny/Components/Global/logo.dart';
 import 'package:penny/Components/mainScreen/BottomNavigation.dart';
-import 'package:penny/Screens/SignUpForm/SignUpForm.dart';
 import 'package:penny/Screens/mainScreen/Notification/index.dart';
 import 'package:penny/Screens/mainScreen/Screens/Account/Account.dart';
 import 'package:penny/Screens/mainScreen/Screens/ContactSupport/ContactSupport.dart';
@@ -15,6 +14,7 @@ import 'package:penny/Screens/mainScreen/Screens/Wallet/Withdrawal/withdrawal.da
 import 'package:penny/Screens/mainScreen/Screens/homeScreen/HomePage.dart';
 import 'package:penny/Screens/signUp.dart';
 
+// main screen
 class mainScreen extends StatefulWidget {
   static route({int initialPage = 0}) => MaterialPageRoute(
       builder: (context) => mainScreen(initialPage: initialPage));
@@ -89,9 +89,9 @@ class _mainScreenState extends State<mainScreen> {
           ),
         ],
       ),
-      backgroundColor: Color.fromRGBO(36, 36, 51, 1),
+      backgroundColor: const Color.fromRGBO(36, 36, 51, 1),
       drawer: Drawer(
-        backgroundColor: Color.fromRGBO(36, 36, 51, 1),
+        backgroundColor: const Color.fromRGBO(36, 36, 51, 1),
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -100,22 +100,22 @@ class _mainScreenState extends State<mainScreen> {
               const SizedBox(
                 height: 70,
               ),
-              Logo(),
+              const Logo(),
               const SizedBox(height: 10),
               const SizedBox(height: 5),
-              Row(children: [
+              const Row(children: [
                 SizedBox(
                   width: 70,
                 ),
                 Column(children: [
-                  const Text(
+                  Text(
                     "\$78,450",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
-                  const Text(
+                  Text(
                     "Hello, Hazem",
                     style: TextStyle(color: Colors.white70, fontSize: 14),
                   ),
@@ -206,7 +206,8 @@ class _mainScreenState extends State<mainScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => PaymentMethodScreen()),
+                              builder: (context) =>
+                                  const PaymentMethodScreen()),
                         );
                       },
                     ),
@@ -221,7 +222,7 @@ class _mainScreenState extends State<mainScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => AddFundsScreen()),
+                              builder: (context) => const AddFundsScreen()),
                         );
                       },
                     ),
@@ -236,7 +237,8 @@ class _mainScreenState extends State<mainScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => WithdrawFundsScreen()));
+                                builder: (context) =>
+                                    const WithdrawFundsScreen()));
                       },
                     ),
                     const Divider(
@@ -255,7 +257,8 @@ class _mainScreenState extends State<mainScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ContactSupportScreen()));
+                                builder: (context) =>
+                                    const ContactSupportScreen()));
                       },
                     ),
                     ListTile(
@@ -266,8 +269,10 @@ class _mainScreenState extends State<mainScreen> {
                         style: TextStyle(color: Colors.redAccent, fontSize: 14),
                       ),
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Signup()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Signup()));
                       },
                     ),
                   ],
@@ -293,6 +298,7 @@ class _mainScreenState extends State<mainScreen> {
         unselectedItemColor: Colors.white,
         currentIndex: _currentnavitem,
         onTap: navigateToPage,
+        // main screen navigations
         items: [
           BottomNavBarItem.bottomNavigationBaritem(
               "assets/icons/HomeInactiveIcon/Home.svg",

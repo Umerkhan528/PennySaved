@@ -5,7 +5,6 @@ import 'package:penny/Screens/mainScreen/Screens/Enable2FA/Enable2FA.dart';
 import 'package:penny/Screens/mainScreen/Screens/Preferences/Prefer.dart';
 import 'package:penny/Screens/mainScreen/Screens/Terms&Conditions/Index.dart';
 import 'package:penny/Screens/mainScreen/Screens/Wallet/PaymentMethods/index.dart';
-import 'package:penny/Screens/mainScreen/index.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -45,7 +44,8 @@ class SettingsScreen extends StatelessWidget {
               () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => SecurityScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => const SecurityScreen()),
                 );
               },
             ),
@@ -55,7 +55,8 @@ class SettingsScreen extends StatelessWidget {
               () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => PreferencesScreen()),
+                  MaterialPageRoute(
+                      builder: (context) => const PreferencesScreen()),
                 );
               },
             ),
@@ -77,7 +78,7 @@ class SettingsScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ContactSupportScreen()),
+                      builder: (context) => const ContactSupportScreen()),
                 );
               },
             ),
@@ -88,7 +89,7 @@ class SettingsScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => TermsAndConditionsScreen()),
+                      builder: (context) => const TermsAndConditionsScreen()),
                 );
               },
             ),
